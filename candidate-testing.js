@@ -29,7 +29,7 @@ function askQuestion() {
 for (let i = 0; i < questions.length; i++) {
   candidateAnswer = input.question(questions[i])
   candidateAnswers.push(candidateAnswer)
- 
+ console.log(`Your Answer: ${candidateAnswers[i]}\nCorrect Answer: ${correctAnswers[i]}\n`)
 }
 }
 
@@ -37,14 +37,14 @@ function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
 console.log("\n")
-for (i = 0; i <questions.length; i++){
-if (candidateAnswers[i] === correctAnswers[i])
-  {
-    console.log(`You answered '${candidateAnswers[i]}'.  That's correct!`)
-  } else {
-    console.log(`You answered '${candidateAnswers[i]}'.  That's incorrect. '${correctAnswers[i]}' is the correct answer.`)
-  }
+for (i = 0; i < questions.length; i++){
+if (candidateAnswers[i] === correctAnswers[i]){
+    console.log(`Your answer: ${candidateAnswers[i]}\nCorrect answer: ${correctAnswers[i]}\n`)
+ 
 
+} else {
+
+  
 }
 
 
@@ -63,7 +63,7 @@ function runProgram() {
   // TODO 1.1c: Ask for candidate's name //
   
   {
-    console.log(`Hello ${candidateName}. \nWelcome to the LC101 Candidate Quiz.\nLet's get started!\n`)
+    console.log(`Candidate Name: ${candidateName}\n`)
   }
   askQuestion();
   gradeQuiz(this.candidateAnswers);
