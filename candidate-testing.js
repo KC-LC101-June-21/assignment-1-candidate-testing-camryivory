@@ -29,7 +29,6 @@ function askQuestion() {
 for (let i = 0; i < questions.length; i++) {
   candidateAnswer = input.question(questions[i])
   candidateAnswers.push(candidateAnswer)
- console.log(`Your Answer: ${candidateAnswers[i]}\nCorrect Answer: ${correctAnswers[i]}\n`)
 }
 }
 
@@ -38,7 +37,7 @@ function gradeQuiz(candidateAnswers) {
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
 console.log("\n")
 for (i = 0; i < questions.length; i++){
-if (candidateAnswers[i] === correctAnswers[i])
+if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase())
   {
     console.log(`You answered '${candidateAnswers[i]}'.  That's correct!`)
   } else {
