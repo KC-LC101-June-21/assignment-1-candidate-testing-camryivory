@@ -35,35 +35,44 @@ for (let i = 0; i < questions.length; i++) {
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-console.log("\n")
+console.log(`\n>>> Quiz Results <<<\n\nCandidate Name: ${candidateName}`)
+let candidateCorrectAnswers = [];
+let candidateIncorrectAnswers = [];
+
 for (i = 0; i < questions.length; i++){
 if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase())
   {
-    console.log(`You answered '${candidateAnswers[i]}'.  That's correct!`)
+    candidateCorrectAnswers.push(candidateAnswers[i]);
+    console.log(`${i+1}) ${questions[i]}\nYour Answer: ${candidateAnswers[i]}\nCorrect Answer: ${correctAnswers[i]}\n+ Correct!\n`)
   } else {
-    console.log(`You answered '${candidateAnswers[i]}'.  That's incorrect. '${correctAnswers[i]}' is the correct answer.`)
+    candidateIncorrectAnswers.push(candidateAnswers[i]);
+    console.log(`${i+1}) ${questions[i]}\nYour Answer: ${candidateAnswers[i]}\nCorrect Answer: ${correctAnswers[i]}\n- Incorrect!\n`)
   }
 
 
+
 }
+  let grade = (candidateCorrectAnswers.length/correctAnswers.length)*100;
 
+console.log(`>>> Overall Grade: ${grade}% (${candidateCorrectAnswers.length} of ${correctAnswers.length} responses correct) <<<`)
 
-
-
-
-
-  let grade;
   
-
-  return grade;
+if (grade >= 60) {
+  console.log(">>> Status: PASSED <<<")
+} else {
+  console.log(">>> Status: FAILED <<<")
 }
+  return grade;
+
+}
+
 
 function runProgram() {
   askForName();
   // TODO 1.1c: Ask for candidate's name //
   
   {
-    console.log(`Candidate Name: ${candidateName}\n`)
+    console.log(`Hi ${candidateName}!\nWelcome to the LC101 Candidate Quiz.\nLet's get started!\n`)
   }
   askQuestion();
   gradeQuiz(this.candidateAnswers);
